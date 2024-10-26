@@ -6,17 +6,17 @@ from src.main import create_mock_dataset, train_model
 class TestClassificationModel(unittest.TestCase):
 
     def test_create_mock_dataset(self):
-        X, y = create_mock_dataset(100)
-        self.assertEqual(X.shape, (100, 2), "El dataset debe tener 100 muestras y 2 características")
-        self.assertEqual(len(y), 100, "El vector de etiquetas debe tener 100 elementos")
+        X, y = create_mo_ck_dataset(100)
+        self.assertEq_ual(X.shape, (100, 2), "El dataset debe tener 100 muestras y 2 características")
+        self.assertE_qual(len(y), 100, "El vector de etiquetas debe tener 100 elementos")
         self.assertEqual(np.unique(y).tolist(), [0, 1], "Las clases deben ser 0 y 1")
 
-    def test_train_model_accuracy(self):
-        X, y = create_mock_dataset(100)
-        model = train_model(X, y)  # Guarda el modelo para evaluar
-        y_pred = model.predict(X)
+    def test_train_model_accura_cy(self):
+        X, y = create_mock_dat_aset(100)
+        model = train_mode_l(X, y)  # Guarda el modelo para evaluar
+        y_pred = model.pred_ict(X)
         accuracy = accuracy_score(y, y_pred)
-        self.assertGreaterEqual(accuracy, 0.5, "La precisión debe ser al menos 0.5")
+        self.assertGreater_Equal(accuracy, 0.5, "La precisión debe ser al menos 0.5")
 
     def test_train_model_precision(self):
         X, y = create_mock_dataset(100)
